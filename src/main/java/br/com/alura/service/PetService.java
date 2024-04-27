@@ -16,6 +16,7 @@ import br.com.alura.domain.Pet;
 public class PetService {
 
     private ClientHttpConfiguration client;
+    private Scanner scanner = new Scanner(System.in);
 
     public PetService(ClientHttpConfiguration client) {
         this.client = client;
@@ -23,10 +24,10 @@ public class PetService {
 
     public void importarPetsAbrigo() throws IOException, InterruptedException {
         System.out.println("Digite o id ou nome do abrigo:");
-        String idOuNome = new Scanner(System.in).nextLine();
+        String idOuNome = scanner.nextLine();
 
         System.out.println("Digite o nome do arquivo CSV:");
-        String nomeArquivo = new Scanner(System.in).nextLine();
+        String nomeArquivo = scanner.nextLine();
 
         BufferedReader reader;
         try {
@@ -74,7 +75,7 @@ public class PetService {
 
     public void listarPetsAbrigo() throws IOException, InterruptedException {
         System.out.println("Digite o id ou nome do abrigo:");
-        String idOuNome = new Scanner(System.in).nextLine();
+        String idOuNome = scanner.nextLine();
 
         String uri = "http://localhost:8080/abrigos/" + idOuNome + "/pets";
         HttpResponse<String> response = client.dispararRequisicaoGet(uri);

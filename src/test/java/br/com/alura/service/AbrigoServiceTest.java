@@ -18,6 +18,7 @@ import br.com.alura.domain.Abrigo;
 public class AbrigoServiceTest {
     private ClientHttpConfiguration client = mock(ClientHttpConfiguration.class);
     private AbrigoService abrigoService = new AbrigoService(client);
+    @SuppressWarnings("unchecked")
     private HttpResponse<String> response = mock(HttpResponse.class);
     private Abrigo abrigo = new Abrigo("Teste", "61981880392", "abrigo_alura@gmail.com");
 

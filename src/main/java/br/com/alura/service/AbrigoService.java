@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.domain.Abrigo;
@@ -18,9 +14,11 @@ import br.com.alura.domain.Abrigo;
 public class AbrigoService {
 
     private ClientHttpConfiguration client;
+    private Scanner scanner;
 
     public AbrigoService(ClientHttpConfiguration client) {
         this.client = client;
+        scanner = new Scanner(System.in);
     }
 
     public void listarAbrigos() throws IOException, InterruptedException {
@@ -47,11 +45,11 @@ public class AbrigoService {
 
     public void cadastrarAbrigo() throws IOException, InterruptedException {
         System.out.println("Digite o nome do abrigo:");
-        String nome = new Scanner(System.in).nextLine();
+        String nome = scanner.nextLine();
         System.out.println("Digite o telefone do abrigo:");
-        String telefone = new Scanner(System.in).nextLine();
+        String telefone = scanner.nextLine();
         System.out.println("Digite o email do abrigo:");
-        String email = new Scanner(System.in).nextLine();
+        String email = scanner.nextLine();
 
         Abrigo abrigo = new Abrigo(nome, telefone, email);
         String uri = "http://localhost:8080/abrigos";
